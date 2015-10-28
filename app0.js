@@ -22,15 +22,6 @@ app.controller("AppsCtrl", function($scope) {
       },
       callback: function(chart){
         console.log("!!! lineChart callback !!!");
-        d3.selectAll(".nv-line").on("click", function () {
-          alert("clicked");
-        });
-        d3.selectAll(".nvtooltip").on("click", function () {
-          alert("clicked Tooltip");
-        });
-        chart.tooltip.dispatch.on('elementClick', function(e) {
-          alert("clicked Second Tooltip");
-        });
         //chart.interactiveLayer.tooltip.fixedTop(1000)
         //var tooltip = chart.interactiveLayer.tooltip;
         //tooltip.gravity('s');
@@ -67,10 +58,11 @@ app.controller("AppsCtrl", function($scope) {
       interactive: true,
       tooltips: true,
      tooltipContent: function (key, x, y, e, graph) { //return html content
-       return '<h3 style="color:white;background-color:black;">' + key + '</h3>' +
-       '<div class="btn-group-vertical" style="color:white;background-color:black;">' +
-       '<div class="inline" >'+
-       ' <button type="button" class="btn btn-info btn-xs">ZOOM</button><a href="http://www.w3schools.com/html/" style="color:white;">sadsdasdssdadsasadsad</a><pre>  '+ d3.time.format('%x')(new Date(x)) + '</pre></div>'+
+       return '<h3>' + key + '</h3>' +
+       '<br/>'+
+       '<div class="btn-group-vertical">' +
+       '<div class="inline">'+
+       ' <button type="button" class="btn btn-info btn-xs">ZOOM</button><a href="http://www.w3schools.com/html/">sadsdasdssdadsasadsad</a><pre>  '+ d3.time.format('%x')(new Date(x)) + '</pre></div>'+
        '<hr/>'+
        '<div class="inline">'+
        ' <button type="button" class="btn btn-info btn-xs">ZOOM</button><pre>  ' + y +
