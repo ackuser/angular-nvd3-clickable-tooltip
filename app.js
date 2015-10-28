@@ -13,42 +13,27 @@ app.controller("AppsCtrl", function($scope) {
         bottom: 60,
         left: 40
       },
-      //useInteractiveGuideline: true,
-      dispatch: {
-        stateChange: function(e){ console.log("stateChange"); },
-        changeState: function(e){ console.log("changeState"); },
-        tooltipShow: function(e){ console.log(e); },
-        //tooltipHide: function(e){ console.log("tooltipHide"); }
-      },
       callback: function(chart){
         console.log("!!! lineChart callback !!!");
-        d3.selectAll(".nv-line").on("click", function () {
-          alert("clicked");
-        });
-        d3.selectAll(".nvtooltip").on("click", function () {
-          alert("clicked Tooltip");
-        });
-        chart.tooltip.dispatch.on('elementClick', function(e) {
-          alert("clicked Second Tooltip");
-        });
-        //chart.interactiveLayer.tooltip.fixedTop(1000)
-        //var tooltip = chart.interactiveLayer.tooltip;
-        //tooltip.gravity('s');
-        //tooltip.fixedTop(65);
-          //console.log(tooltip);
+
+        var tooltip = chart.interactiveLayer.tooltip;
+
+        console.log(tooltip);
         //tooltip.contentGenerator(function(d) {
-          //console.log("HELLO TOOLTIP");
-          //return '</p>';
+        //console.log("HELLO TOOLTIP");
+        //return '</p>';
         //});
 
         //chart.interactiveLayer.tooltip.contentGenerator(function (d){
         //chart.tooltip.snapDistance(8);
         //chart.tooltip.fixedTop(100);
         //chart.tooltip.position({"top":1000000,"left":1300000});
-        chart.tooltip.content(function (d){
-          var html = '<h3>' + d.value + '</h3>' +
-          '<br/>'+
-          '<div class="btn-group-vertical">' +
+
+        //chart.interactiveLayer.tooltip.contentGenerator(function (d){
+        chart.tooltip.contentGenerator(function (d){
+          var html =
+          '<h3 style="color:white;background-color:black;">' + d.value + '</h3>' +
+          '<div class="btn-group-vertical" style="color:white;background-color:black;">' +
           '<div class="inline">'+
           ' <a href="http://www.w3schools.com/html/" class="btn btn-info btn-xs" role="button">ZOOM</a><pre>  '+ d3.time.format('%x')(new Date(d.point.x)) +
           '</pre></div>'+
@@ -62,28 +47,9 @@ app.controller("AppsCtrl", function($scope) {
         });
         return chart;
       },
-      //useInteractiveGuideline: true,
       useInteractiveGuideline: false,
       interactive: true,
-      tooltips: true,
-     tooltipContent: function (key, x, y, e, graph) { //return html content
-       return '<h3 style="color:white;background-color:black;">' + key + '</h3>' +
-       '<div class="btn-group-vertical" style="color:white;background-color:black;">' +
-       '<div class="inline" >'+
-       ' <button type="button" class="btn btn-info btn-xs">ZOOM</button><a href="http://www.w3schools.com/html/" style="color:white;">sadsdasdssdadsasadsad</a><pre>  '+ d3.time.format('%x')(new Date(x)) + '</pre></div>'+
-       '<hr/>'+
-       '<div class="inline">'+
-       ' <button type="button" class="btn btn-info btn-xs">ZOOM</button><pre>  ' + y +
-       '</pre></div>'+
-       '<br/>'+
-       '</div>'
-     },
       transitionDuration: 500,
-      dispatch: {
-                 tooltipShow: function(e){ console.log(e);console.log('! tooltip SHOW !')},
-                 tooltipHide: function(e){console.log('! tooltip HIDE !')},
-                 beforeUpdate: function(e){ console.log('! before UPDATE !')}
-               },
       xAxis: {
         axisLabel: 'X Axis',
         tickFormat: function(d){
