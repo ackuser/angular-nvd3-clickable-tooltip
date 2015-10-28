@@ -22,23 +22,57 @@ app.controller("AppsCtrl", function($scope) {
       },
       callback: function(chart){
         console.log("!!! lineChart callback !!!");
+        //chart.interactiveLayer.tooltip.fixedTop(1000)
+        //var tooltip = chart.interactiveLayer.tooltip;
+        //tooltip.gravity('s');
+        //tooltip.fixedTop(65);
+          //console.log(tooltip);
+        //tooltip.contentGenerator(function(d) {
+          //console.log("HELLO TOOLTIP");
+          //return '</p>';
+        //});
+        chart.tooltip.contentGenerator(function (d){
+          console.log("HELLO TOOLTIP");
+          console.log(d);
+          /*var html = "<h2>"+d.value+"</h2> <ul>";
+
+          d.series.forEach(function(elem){
+            html += "<li><h3 style='color:"+elem.color+"'>"
+                    +elem.key+"</h3> : <b>"+elem.value+"</b></li>";
+          })
+          html += "</ul>"*/
+          var html = '<h3>' + d.value + '</h3>' +
+          '<br/>'+
+          '<div class="btn-group-vertical">' +
+          '<div class="inline">'+
+          ' <a href="http://www.w3schools.com/html/" class="btn btn-info btn-xs" role="button">ZOOM</a><pre><a href="http://www.w3schools.com/html/">hello world!</a>  '+ d3.time.format('%x')(new Date(d.point.x)) +
+          '</pre></div>'+
+          '<hr/>'+
+          '<div class="inline">'+
+          ' <button type="button" class="btn btn-info btn-xs">ZOOM</button><pre>  ' + d.point.y +
+          '</pre></div>'+
+          '<br/>'+
+          '</div>';
+          return html;
+        })
+        return chart;
       },
       useInteractiveGuideline: false,
       interactive: true,
-      tooltips: true,
-      tooltipContent: function (key, x, y, e, graph) { //return html content
+      /*tooltipContent: function (key, x, y, e, graph) { //return html content
         return '<h3>' + key + '</h3>' +
         '<br/>'+
         '<div class="btn-group-vertical">' +
         '<div class="inline">'+
-        ' <button type="button" class="btn btn-info btn-xs">ZOOM</button><pre>  '+ d3.time.format('%x')(new Date(x)) + '</pre></div>'+
+        ' <a href="http://www.w3schools.com/html/" class="btn btn-info btn-xs" role="button">ZOOM</a><pre><a href="http://www.w3schools.com/html/">hello world!</a>  '+ d3.time.format('%x')(new Date(x)) +
+        '</pre></div>'+
         '<hr/>'+
         '<div class="inline">'+
         ' <button type="button" class="btn btn-info btn-xs">ZOOM</button><pre>  ' + y +
         '</pre></div>'+
         '<br/>'+
         '</div>'
-      },
+      },*/
       transitionDuration: 500,
       xAxis: {
         axisLabel: 'X Axis',
