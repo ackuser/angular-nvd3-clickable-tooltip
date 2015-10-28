@@ -1,0 +1,160 @@
+.btn-paypal {
+  color: #ffffff;
+  background-color: #611BBD;
+  border-color: #130269;
+}
+
+.btn-paypal:hover,
+.btn-paypal:focus,
+.btn-paypal:active,
+.btn-paypal.active,
+.open .dropdown-toggle.btn-paypal {
+  color: #ffffff;
+  background-color: #49247A;
+  border-color: #130269;
+}
+
+.btn-paypal:active,
+.btn-paypal.active,
+.open .dropdown-toggle.btn-paypal {
+  background-image: none;
+}
+
+.btn-paypal.disabled,
+.btn-paypal[disabled],
+fieldset[disabled] .btn-paypal,
+.btn-paypal.disabled:hover,
+.btn-paypal[disabled]:hover,
+fieldset[disabled] .btn-paypal:hover,
+.btn-paypal.disabled:focus,
+.btn-paypal[disabled]:focus,
+fieldset[disabled] .btn-paypal:focus,
+.btn-paypal.disabled:active,
+.btn-paypal[disabled]:active,
+fieldset[disabled] .btn-paypal:active,
+.btn-paypal.disabled.active,
+.btn-paypal[disabled].active,
+fieldset[disabled] .btn-paypal.active {
+  background-color: #611BBD;
+  border-color: #130269;
+}
+
+.btn-paypal .badge {
+  color: #611BBD;
+  background-color: #ffffff;
+}
+
+.btn-braintree {
+  color: #ffffff;
+  background-color: #D16014;
+  border-color: #E39919;
+}
+
+.btn-braintree:hover,
+.btn-braintree:focus,
+.btn-braintree:active,
+.btn-braintree.active,
+.open .dropdown-toggle.btn-braintree {
+  color: #ffffff;
+  background-color: #DE9F21;
+  border-color: #E39919;
+}
+
+.btn-braintree:active,
+.btn-braintree.active,
+.open .dropdown-toggle.btn-braintree {
+  background-image: none;
+}
+
+.btn-braintree.disabled,
+.btn-braintree[disabled],
+fieldset[disabled] .btn-braintree,
+.btn-braintree.disabled:hover,
+.btn-braintree[disabled]:hover,
+fieldset[disabled] .btn-braintree:hover,
+.btn-braintree.disabled:focus,
+.btn-braintree[disabled]:focus,
+fieldset[disabled] .btn-braintree:focus,
+.btn-braintree.disabled:active,
+.btn-braintree[disabled]:active,
+fieldset[disabled] .btn-braintree:active,
+.btn-braintree.disabled.active,
+.btn-braintree[disabled].active,
+fieldset[disabled] .btn-braintree.active {
+  background-color: #D16014;
+  border-color: #E39919;
+}
+
+.btn-braintree .badge {
+  color: #D16014;
+  background-color: #ffffff;
+}
+
+.btn-amazon {
+  color: #ffffff;
+  background-color: #14ABD1;
+  border-color: #19DCE3;
+}
+
+.btn-amazon:hover,
+.btn-amazon:focus,
+.btn-amazon:active,
+.btn-amazon.active,
+.open .dropdown-toggle.btn-amazon {
+  color: #ffffff;
+  background-color: #21DEBF;
+  border-color: #19DCE3;
+}
+
+.btn-amazon:active,
+.btn-amazon.active,
+.open .dropdown-toggle.btn-amazon {
+  background-image: none;
+}
+
+.btn-amazon.disabled,
+.btn-amazon[disabled],
+fieldset[disabled] .btn-amazon,
+.btn-amazon.disabled:hover,
+.btn-amazon[disabled]:hover,
+fieldset[disabled] .btn-amazon:hover,
+.btn-amazon.disabled:focus,
+.btn-amazon[disabled]:focus,
+fieldset[disabled] .btn-amazon:focus,
+.btn-amazon.disabled:active,
+.btn-amazon[disabled]:active,
+fieldset[disabled] .btn-amazon:active,
+.btn-amazon.disabled.active,
+.btn-amazon[disabled].active,
+fieldset[disabled] .btn-amazon.active {
+  background-color: #14ABD1;
+  border-color: #19DCE3;
+}
+
+.btn-amazon .badge {
+  color: #14ABD1;
+  background-color: #ffffff;
+}
+
+.btn-sq-lg {
+  width: 150px !important;
+  height: 150px !important;
+}
+
+.btn-sq {
+  width: 100px !important;
+  height: 100px !important;
+  font-size: 10px;
+}
+
+.btn-sq-sm {
+  width: 50px !important;
+  height: 50px !important;
+  font-size: 10px;
+}
+
+.btn-sq-xs {
+  width: 25px !important;
+  height: 25px !important;
+  padding:2px;
+}
