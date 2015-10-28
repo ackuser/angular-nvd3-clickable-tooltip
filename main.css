@@ -182,7 +182,6 @@ fieldset[disabled] .btn-amazon.active {
   background: lightsteelblue;
   border: 0px;
   border-radius: 8px;*/
- /*  pointer-events: none;  This line needs to be removed */
 }
 
 .nvtooltip:after {
@@ -204,7 +203,6 @@ position: absolute;
   background: black;
   border: 0px;
   border-radius: 8px;
-  pointer-events: auto;
   cursor: pointer;
 }
 
@@ -246,13 +244,7 @@ position: absolute;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
-    pointer-events: none;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+
 }
 .nvtooltip.x-nvtooltip, .nvtooltip.y-nvtooltip {
     padding: 8px;
@@ -280,7 +272,6 @@ position: absolute;
 }
 .nvtooltip-pending-removal {
     position: absolute;
-    pointer-events: none;
 }
 /********************
  * SVG CSS
@@ -306,9 +297,6 @@ svg .title {
 .nvd3 .nv-background {
     fill: white;
     fill-opacity: 0;
-    /*
-  pointer-events: none;
-  */
 }
 .nvd3.nv-noData {
     font-size: 18px;
@@ -513,7 +501,6 @@ svg .title {
 * Distribution
 */
  .nvd3 .nv-distribution {
-    pointer-events: none;
 }
 /**********
 *  Scatter
@@ -521,7 +508,6 @@ svg .title {
 
 /* **Attempting to remove this for useVoronoi(false), need to see if it's required anywhere
 .nvd3 .nv-groups .nv-point {
-  pointer-events: none;
 }
 */
  .nvd3 .nv-groups .nv-point.hover {
@@ -640,7 +626,7 @@ svg .title {
     fill: none;
 }
 .nvd3.nv-sparklineplus g.nv-hoverValue {
-    pointer-events: none;
+
 }
 .nvd3.nv-sparklineplus .nv-hoverValue line {
     stroke: #333;

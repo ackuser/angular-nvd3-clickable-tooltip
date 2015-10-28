@@ -16,13 +16,20 @@ app.controller("AppsCtrl", function($scope) {
       callback: function(chart){
         console.log("!!! lineChart callback !!!");
 
-        var tooltip = chart.interactiveLayer.tooltip;
 
-        console.log(tooltip);
-        //tooltip.contentGenerator(function(d) {
-        //console.log("HELLO TOOLTIP");
-        //return '</p>';
-        //});
+        d3.selectAll(".nv-line").on("click", function () {
+            alert("clicked");
+        });
+
+        d3.selectAll(".nvtooltip").on("click", function () {
+            alert("clicked tooltip");
+        });
+        //var tooltip = chart.interactiveLayer.tooltip;
+        var tooltip = chart.tooltip;
+
+        console.log(tooltip.toString());
+
+        
 
         //chart.interactiveLayer.tooltip.contentGenerator(function (d){
         //chart.tooltip.snapDistance(8);
@@ -30,7 +37,7 @@ app.controller("AppsCtrl", function($scope) {
         //chart.tooltip.position({"top":1000000,"left":1300000});
 
         //chart.interactiveLayer.tooltip.contentGenerator(function (d){
-        chart.tooltip.contentGenerator(function (d){
+        tooltip.contentGenerator(function (d){
           var html =
           '<h3 style="color:white;background-color:black;">' + d.value + '</h3>' +
           '<div class="btn-group-vertical" style="color:white;background-color:black;">' +
@@ -45,6 +52,7 @@ app.controller("AppsCtrl", function($scope) {
           '</div>';
           return html;
         });
+
         return chart;
       },
       useInteractiveGuideline: false,
