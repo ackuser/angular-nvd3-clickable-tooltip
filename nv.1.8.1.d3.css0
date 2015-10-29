@@ -363,7 +363,7 @@ svg.nvd3-svg {
     stroke-opacity: .7;
 }
 
-.nvd3 .nv-parallelCoordinates-brush .extent
+.nvd3 .nv-parallelCoordinates-brush .extent 
 {
     fill: #fff;
     fill-opacity: .6;
@@ -382,7 +382,7 @@ svg.nvd3-svg {
   stroke: black;
   stroke-width: 1;
   stroke-opacity: 1;
-  stroke-dasharray: 5, 5;
+  stroke-dasharray: 5, 5; 
 }
 .nvd3.nv-pie path {
     stroke-opacity: 0;
@@ -412,7 +412,7 @@ svg.nvd3-svg {
     fill-opacity: .7;
 }
 .nvd3.nv-pie .nv-label {
-    /*pointer-events: none MODIFICATION*/;
+    pointer-events: none;
 }
 .nvd3.nv-pie .nv-label rect {
     fill-opacity: 0;
@@ -429,11 +429,11 @@ svg.nvd3-svg {
     fill-opacity: 1;
 }
 .nv-noninteractive {
-    /*pointer-events: none MODIFICATION*/;
+    pointer-events: none;
 }
 
 .nv-distx, .nv-disty {
-    /*pointer-events: none MODIFICATION*/;
+    pointer-events: none;
 }
 
 /* sparkline */
@@ -442,7 +442,7 @@ svg.nvd3-svg {
 }
 
 .nvd3.nv-sparklineplus g.nv-hoverValue {
-    /*pointer-events: none MODIFICATION*/;
+    pointer-events: none;
 }
 
 .nvd3.nv-sparklineplus .nv-hoverValue line {
@@ -517,7 +517,7 @@ svg.nvd3-svg {
     font-family: Arial;
     font-size: 13px;
     text-align: left;
-    /*pointer-events: none MODIFICATION*/;
+    pointer-events: none;
 
     white-space: nowrap;
 
@@ -625,7 +625,7 @@ svg.nvd3-svg {
 }
 
 .nvtooltip-pending-removal {
-    /*pointer-events: none MODIFICATION*/;
+    pointer-events: none;
     display: none;
 }
 

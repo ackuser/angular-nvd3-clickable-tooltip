@@ -17,9 +17,9 @@ app.controller("AppsCtrl", function($scope) {
         console.log("!!! lineChart callback !!!");
 
 
-        d3.selectAll(".nv-line").on("click", function () {
+        /*d3.selectAll(".nv-line").on("click", function () {
             alert("clicked");
-        });
+        });*/
 
         d3.selectAll(".nvtooltip").on("click", function () {
             alert("clicked tooltip");
@@ -27,9 +27,14 @@ app.controller("AppsCtrl", function($scope) {
         //var tooltip = chart.interactiveLayer.tooltip;
         var tooltip = chart.tooltip;
 
-        console.log(tooltip.toString());
+        console.log(tooltip.tooltipElem);
 
-        
+
+        /*tooltip.dispatch.on('elementClick', function(e) {
+             alert("You've clicked on " + e.series.key + " - " + e.point.x);
+         });*/
+
+         console.log(tooltip);
 
         //chart.interactiveLayer.tooltip.contentGenerator(function (d){
         //chart.tooltip.snapDistance(8);
