@@ -15,31 +15,12 @@ app.controller("AppsCtrl", function($scope) {
       },
       callback: function(chart){
         console.log("!!! lineChart callback !!!");
-
-
-        /*d3.selectAll(".nv-line").on("click", function () {
-            alert("clicked");
-        });*/
-
-        d3.selectAll(".nvtooltip").on("click", function () {
-            alert("clicked tooltip");
-        });
-        //var tooltip = chart.interactiveLayer.tooltip;
         var tooltip = chart.tooltip;
-
-        console.log(tooltip.tooltipElem);
-
-
-        /*tooltip.dispatch.on('click', function(e) {
-             alert("You've clicked on ");
-         });*/
-
-         console.log(tooltip);
-
-        //chart.interactiveLayer.tooltip.contentGenerator(function (d){
-        //chart.tooltip.snapDistance(8);
-        //chart.tooltip.fixedTop(100);
-        //chart.tooltip.position({"top":1000000,"left":1300000});
+        chart.tooltip.distance(-15);
+        //chart.tooltip.duration(2000);
+        //chart.tooltip.hidden(false);
+        chart.tooltip.hideDelay(2000)
+        chart.tooltip.fixedTop(100);
 
         //chart.interactiveLayer.tooltip.contentGenerator(function (d){
         tooltip.contentGenerator(function (d){

@@ -517,6 +517,7 @@ svg.nvd3-svg {
     font-family: Arial;
     font-size: 13px;
     text-align: left;
+    /* MODIFICATION TO MAKE THE TOOLTIP CLICKABLE */
     /*pointer-events: none;*/
 
     white-space: nowrap;

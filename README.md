@@ -1,5 +1,12 @@
 # angular-nvd3-clickable-tooltip
 
+```
+http://embed.plnkr.co/n9QWBNHRDVEt4tuQh1fO/preview
+
+```
+
+
+
 https://github.com/krispo/angular-nvd3/issues/70
 
 https://github.com/krispo/angular-nvd3/issues/77
