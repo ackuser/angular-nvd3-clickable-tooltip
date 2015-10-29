@@ -204,6 +204,8 @@ position: absolute;
   border: 0px;
   border-radius: 8px;
   cursor: pointer;
+  pointer-events: auto;
+
 }
 
 

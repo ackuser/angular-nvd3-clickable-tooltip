@@ -412,7 +412,7 @@ svg.nvd3-svg {
     fill-opacity: .7;
 }
 .nvd3.nv-pie .nv-label {
-    pointer-events: none;
+    /*pointer-events: none MODIFICATION*/;
 }
 .nvd3.nv-pie .nv-label rect {
     fill-opacity: 0;
@@ -429,11 +429,11 @@ svg.nvd3-svg {
     fill-opacity: 1;
 }
 .nv-noninteractive {
-    pointer-events: none;
+    /*pointer-events: none MODIFICATION*/;
 }
 
 .nv-distx, .nv-disty {
-    pointer-events: none;
+    /*pointer-events: none MODIFICATION*/;
 }
 
 /* sparkline */
@@ -442,7 +442,7 @@ svg.nvd3-svg {
 }
 
 .nvd3.nv-sparklineplus g.nv-hoverValue {
-    pointer-events: none;
+    /*pointer-events: none MODIFICATION*/;
 }
 
 .nvd3.nv-sparklineplus .nv-hoverValue line {
@@ -517,7 +517,7 @@ svg.nvd3-svg {
     font-family: Arial;
     font-size: 13px;
     text-align: left;
-    /*pointer-events: none;*/
+    /*pointer-events: none MODIFICATION*/;
 
     white-space: nowrap;
 
@@ -625,7 +625,7 @@ svg.nvd3-svg {
 }
 
 .nvtooltip-pending-removal {
-    pointer-events: none;
+    /*pointer-events: none MODIFICATION*/;
     display: none;
 }
 

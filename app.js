@@ -30,8 +30,8 @@ app.controller("AppsCtrl", function($scope) {
         console.log(tooltip.tooltipElem);
 
 
-        /*tooltip.dispatch.on('elementClick', function(e) {
-             alert("You've clicked on " + e.series.key + " - " + e.point.x);
+        /*tooltip.dispatch.on('click', function(e) {
+             alert("You've clicked on ");
          });*/
 
          console.log(tooltip);

@@ -502,7 +502,8 @@ nv.nearestValueIndex = function (values, searchVal, threshold) {
         */
         var data = null;
         var gravity = 'w'   //Can be 'n','s','e','w'. Determines how tooltip is positioned.
-            ,   distance = 25   //Distance to offset tooltip from the mouse location.
+            //,   distance = 25   //Distance to offset tooltip from the mouse location. MODIFICATION
+            ,   distance = -10   //Distance to offset tooltip from the mouse location.
             ,   snapDistance = 0   //Tolerance allowed before tooltip is moved from its current position (creates 'snapping' effect)
             ,   fixedTop = null //If not null, this fixes the top position of the tooltip.
             ,   classes = null  //Attaches additional CSS classes to the tooltip DIV that is created.
@@ -526,8 +527,9 @@ nv.nearestValueIndex = function (values, searchVal, threshold) {
         //Generates a unique id when you create a new tooltip() object
         var id = "nvtooltip-" + Math.floor(Math.random() * 100000);
 
-        //CSS class to specify whether element should not have mouse events.
-        var  nvPointerEventsClass = "nv-pointer-events-none";
+        //CSS class to specify whether element should not have mouse events. MODIFICATION
+        //var  nvPointerEventsClass = "nv-pointer-events-none";
+        var  nvPointerEventsClass = "";
 
         //Format function for the tooltip values column
         var valueFormatter = function(d,i) {
@@ -705,7 +707,7 @@ nv.nearestValueIndex = function (values, searchVal, threshold) {
                         tTop = tooltipTop(tooltipElem);
                         break;
                 }
-                
+
                 // adjust tooltip offsets
                 left -= offset.left;
                 top -= offset.top;
@@ -720,14 +722,20 @@ nv.nearestValueIndex = function (values, searchVal, threshold) {
 
                 var is_hidden = tooltip.style('opacity') < 0.1;
 
+                /*tooltip.on("click", function () {
+                  alert("clicked TOOLTIP");
+                });*/
                 // delay hiding a bit to avoid flickering
                 if (hidden) {
                     tooltip
                         .transition()
                         .delay(hideDelay)
-                        .duration(0)
+                        //.duration(0) MODIFICATION
+                        .duration(2000)
                         .style('opacity', 0);
                 } else {
+                  //alert("clicked TOOOOOL"); MODIFICATION
+
                     tooltip
                         .interrupt() // cancel running transitions
                         .transition()
@@ -736,7 +744,7 @@ nv.nearestValueIndex = function (values, searchVal, threshold) {
                         .styleTween('transform', function (d) {
                             return translateInterpolator;
                         }, 'important')
-                        // Safari has its own `-webkit-transform` and does not support `transform` 
+                        // Safari has its own `-webkit-transform` and does not support `transform`
                         // transform tooltip without transition only in Safari
                         .style('-webkit-transform', new_translate)
                         .style('opacity', 1);
@@ -780,9 +788,11 @@ nv.nearestValueIndex = function (values, searchVal, threshold) {
                     .attr("id", id);
                 tooltip.style("top", 0).style("left", 0);
                 tooltip.style('opacity', 0);
-                tooltip.selectAll("div, table, td, tr").classed(nvPointerEventsClass, true);
-                tooltip.classed(nvPointerEventsClass, true);
+                //MODIFICATION
+                //tooltip.selectAll("div, table, td, tr").classed(nvPointerEventsClass, true);
+                //tooltip.classed(nvPointerEventsClass, true);
                 tooltipElem = tooltip.node();
+                console.log
             }
         }
 
@@ -1861,9 +1871,9 @@ nv.models.axis = function() {
                     and the arithmetic trick below solves that.
                     */
                     return !parseFloat(Math.round(d * 100000) / 1000000) && (d !== undefined)
-                }) 
+                })
                 .classed('zero', true);
-            
+
             //store old scales for use in transitions on update
             scale0 = scale.copy();
 
@@ -2268,7 +2278,7 @@ nv.models.boxPlotChart = function() {
         .orient((rightAlignYAxis) ? 'right' : 'left')
         .tickFormat(d3.format(',.1f'))
     ;
-    
+
     tooltip.duration(0);
 
     //============================================================
@@ -2299,7 +2309,7 @@ nv.models.boxPlotChart = function() {
             chart.container = this;
 
             // Display No Data message if there's nothing to show. (quartiles required at minimum)
-            if (!data || !data.length || 
+            if (!data || !data.length ||
                     !data.filter(function(d) { return d.values.hasOwnProperty("Q1") && d.values.hasOwnProperty("Q2") && d.values.hasOwnProperty("Q3"); }).length) {
                 var noDataText = container.selectAll('.nv-noData').data([noData]);
 
@@ -2415,7 +2425,7 @@ nv.models.boxPlotChart = function() {
     });
 
     boxplot.dispatch.on('elementMouseout.tooltip', function(evt) {
-        tooltip.data(evt).hidden(true);
+        tooltip.data(evt).hidden(false);
     });
 
     boxplot.dispatch.on('elementMousemove.tooltip', function(evt) {
@@ -7217,7 +7227,7 @@ nv.models.lineWithFocusChart = function() {
 
             wrap.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-            
+
             //Set up interactive layer
             if (useInteractiveGuideline) {
                 interactiveLayer
@@ -7360,7 +7370,7 @@ nv.models.lineWithFocusChart = function() {
                             var currentValues = series.values.filter(function(d,i) {
                             return lines.x()(d,i) >= extent[0] && lines.x()(d,i) <= extent[1];
                         });
- 
+
                         pointIndex = nv.interactiveBisect(currentValues, e.pointXValue, lines.x());
                         var point = currentValues[pointIndex];
                         var pointYValue = chart.y()(point, pointIndex);
@@ -7682,10 +7692,10 @@ nv.models.multiBar = function() {
                 parsed.forEach(function(series, i){
                     // if series is non-stackable, use un-parsed data
                     if (series.nonStackable) {
-                        data[i].nonStackableSeries = nonStackableCount++; 
+                        data[i].nonStackableSeries = nonStackableCount++;
                         parsed[i] = data[i];
                     } else {
-                        // don't stack this seires on top of the nonStackable seriees 
+                        // don't stack this seires on top of the nonStackable seriees
                         if (i > 0 && parsed[i - 1].nonStackable){
                             parsed[i].values.map(function(d,j){
                                 d.y0 -= parsed[i - 1].values[j].y;
@@ -7721,7 +7731,7 @@ nv.models.multiBar = function() {
                                 posBase = posBase + f.size;
                             }
                         }
-                        
+
                     });
                 });
             }
@@ -7921,7 +7931,7 @@ nv.models.multiBar = function() {
                         if (data[j].nonStackable) {
                             width = d.series * x.rangeBand() / data.length;
                             if (data.length !== nonStackableCount){
-                                width = data[j].nonStackableSeries * x.rangeBand()/(nonStackableCount*2); 
+                                width = data[j].nonStackableSeries * x.rangeBand()/(nonStackableCount*2);
                             }
                         }
                         return width;
@@ -7932,7 +7942,7 @@ nv.models.multiBar = function() {
                         } else {
                             // if all series are nonStacable, take the full width
                             var width = (x.rangeBand() / nonStackableCount);
-                            // otherwise, nonStackable graph will be only taking the half-width 
+                            // otherwise, nonStackable graph will be only taking the half-width
                             // of the x rangeBand
                             if (data.length !== nonStackableCount) {
                                 width = x.rangeBand()/(nonStackableCount*2);
@@ -12176,13 +12186,13 @@ nv.models.stackedArea = function() {
             gEnter.append('g').attr('class', 'nv-scatterWrap');
 
             wrap.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
-            
+
             // If the user has not specified forceY, make sure 0 is included in the domain
             // Otherwise, use user-specified values for forceY
             if (scatter.forceY().length == 0) {
                 scatter.forceY().push(0);
             }
-            
+
             scatter
                 .width(availableWidth)
                 .height(availableHeight)
